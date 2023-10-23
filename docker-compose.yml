@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  spike_oci_v1:
+    image: spike_oci_v1:1.0.0
+    build: .
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    volumes:
+      - $PWD/user_data:/home/user
+    ports:
+      - 8400:8000
+      - 8401:8001
+      - 8402:8002
+      - 8403:8003
+      - 8404:8004
+
+# command to build the image with progress in plain
+# docker build --progress plain -t spike_oci_v1:1.0.0 .
